@@ -48,13 +48,6 @@ export default function About() {
               <span className="company-badge">{t('about.studio')}</span>
               <p>{t('about.callout', { brand: <strong>LenoTech</strong>, owner: SITE.owner })}</p>
             </div>
-
-            <div className="profile-skills-block">
-              <h4>{t('about.skills')}</h4>
-              <div className="skills-tags-wrap">
-                {ABOUT.skills.map((s) => <span className="skill-tag" key={s}>{s}</span>)}
-              </div>
-            </div>
           </div>
 
           <div className="profile-card-footer">
