@@ -1,11 +1,14 @@
 import { useEffect, useRef } from 'react';
 import { useLanguage } from '../context/LanguageContext.jsx';
+import { COPY } from '../data/extras.js';
 import Icon from './Icon.jsx';
 
 const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 export default function ProjectModal({ project, onClose }) {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const cs = project.caseStudy;
+  const labels = COPY[lang].case;
   const windowRef = useRef(null);
   const closeRef = useRef(null);
 
@@ -58,6 +61,7 @@ export default function ProjectModal({ project, onClose }) {
           <Icon name="x" size={18} />
         </button>
 
+        {project.imageUrl && <img className="modal-hero" src={project.imageUrl} alt={project.imageAlt || project.title} width="1280" height="714" />}
         <p className="modal-category">{project.category}</p>
         <h3 className="modal-title" id="modal-title">{project.title}</h3>
         <p className="modal-tagline">{project.tagline}</p>
@@ -65,9 +69,28 @@ export default function ProjectModal({ project, onClose }) {
         <h4 className="modal-heading">{t('projects.overview')}</h4>
         <p className="modal-text">{project.summary}</p>
 
+        {cs && (
+          <div className="case-grid">
+            {['problem', 'solution', 'result'].filter((k) => cs[k]).map((k) => (
+              <div className={`case-step case-step--${k}`} key={k}>
+                <span className="case-label">{labels[k]}</span>
+                <p>{cs[k]}</p>
+              </div>
+            ))}
+          </div>
+        )}
+        {cs?.screenshots?.length > 0 && (
+          <>
+            <h4 className="modal-heading">{labels.shots}</h4>
+            <div className="case-shots">
+              {cs.screenshots.map((src) => <img key={src} src={src} alt="" loading="lazy" />)}
+            </div>
+          </>
+        )}
+
         <h4 className="modal-heading">{t('projects.builtWith')}</h4>
         <div className="work-tech-chips">
-          {project.tech.map((t) => <span className="tech-tag-sm" key={t}>{t}</span>)}
+          {project.tech.map((tag) => <span className="tech-tag-sm" key={tag}>{tag}</span>)}
         </div>
 
         <h4 className="modal-heading">{t('projects.built')}</h4>

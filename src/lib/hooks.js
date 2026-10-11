@@ -50,7 +50,7 @@ const REVEAL_SELECTOR = [
   '.section-header', '.service-card', '.work-card', '.cap-card', '.adv-card', '.pillar-item',
   '.about-narrative > *', '.about-profile-card', '.estimator-card', '.direct-connect-card',
   '.contact-form-card', '.footer-top-grid > *',
-  '.services-grid', '.work-grid', '.capabilities-grid', '.advantage-cards-grid'
+  '.services-grid', '.work-grid', '.pricing-grid', '.acc', '.quotes-grid', '.stats-strip', '.marquee', '.capabilities-grid', '.advantage-cards-grid'
 ].join(',');
 
 /**

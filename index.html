@@ -18,10 +18,97 @@
   <!-- Replace with your absolute URL after deploying, e.g. https://lenotech.in/assets/images/hero_tech_mesh.webp -->
   <meta property="og:image" content="/assets/images/hero_tech_mesh.webp" />
 
+  <meta name="robots" content="index, follow" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="LenoTech | Websites and web apps by Palpandi M" />
+  <meta name="twitter:image" content="/assets/images/hero_tech_mesh.webp" />
+  <!-- After deploying, add (with your real domain):
+       <link rel="canonical" href="https://YOUR-DOMAIN/" />
+       <meta property="og:url" content="https://YOUR-DOMAIN/" /> -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"ProfessionalService","name":"LenoTech","founder":{"@type":"Person","name":"Palpandi M","jobTitle":"Full Stack Developer"},"description":"Websites, web applications and e-commerce platforms built with React, Spring Boot and MySQL.","email":"palpandijava@gmail.com","telephone":"+91 9384904114","address":{"@type":"PostalAddress","addressLocality":"Virudhunagar","addressRegion":"Tamil Nadu","addressCountry":"IN"},"areaServed":"IN","knowsAbout":["React","Spring Boot","MySQL","Web development"]}
+  </script>
+  <style>
+    #preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      background: #f5f9ff;
+      transition: opacity .5s ease, visibility .5s
+    }
+
+    #preloader.done {
+      opacity: 0;
+      visibility: hidden
+    }
+
+    #preloader .pl-mark {
+      font: 800 2rem system-ui, -apple-system, 'Segoe UI', sans-serif;
+      color: #0b1a44;
+      letter-spacing: -.02em
+    }
+
+    #preloader .pl-mark span {
+      color: #2563eb
+    }
+
+    #preloader .pl-bar {
+      width: 140px;
+      height: 4px;
+      border-radius: 4px;
+      background: #dbeafe;
+      overflow: hidden
+    }
+
+    #preloader .pl-bar i {
+      display: block;
+      height: 100%;
+      width: 40%;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #3b82f6, #38bdf8);
+      animation: pl 1s ease-in-out infinite
+    }
+
+    @keyframes pl {
+      0% {
+        transform: translateX(-100%)
+      }
+
+      100% {
+        transform: translateX(350%)
+      }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      #preloader .pl-bar i {
+        animation: none;
+        width: 100%
+      }
+    }
+  </style>
+  <noscript>
+    <style>
+      #preloader {
+        display: none
+      }
+    </style>
+  </noscript>
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
 </head>
 
 <body>
+  <div id="preloader" aria-hidden="true">
+    <div class="pl-mark">Leno<span>Tech</span></div>
+    <div class="pl-bar"><i></i></div>
+  </div>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 </body>

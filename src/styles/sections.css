@@ -1,0 +1,643 @@
+/* New sections: process, pricing, FAQ, testimonials, tech strip, WhatsApp float, form success, case study. */
+.xsec {
+    padding: clamp(64px, 9vw, 104px) 0;
+    position: relative;
+}
+
+/* ---- Accordion (process + FAQ) ---- */
+.acc {
+    max-width: 820px;
+    margin: 0 auto;
+    display: grid;
+    gap: 12px;
+}
+
+.acc-item {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: border-color .3s, box-shadow .3s, transform .3s var(--ease);
+}
+
+.acc-item:hover {
+    border-color: var(--line-strong);
+    transform: translateY(-2px);
+}
+
+.acc-item.open {
+    border-color: var(--blue-300);
+    box-shadow: var(--shadow-md);
+}
+
+.acc-head {
+    margin: 0;
+    font: inherit;
+}
+
+.acc-btn {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    padding: 18px 20px;
+    cursor: pointer;
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 1.02rem;
+    border-radius: var(--radius-md);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.acc-btn:focus-visible {
+    outline: 2px solid var(--blue-500);
+    outline-offset: 2px;
+}
+
+.acc-title {
+    flex: 1;
+    display: grid;
+    gap: 2px;
+}
+
+.acc-title small {
+    color: var(--muted);
+    font-weight: 500;
+    font-size: .88rem;
+}
+
+.acc-num {
+    flex: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    background: var(--blue-50);
+    color: var(--blue-600);
+    font-weight: 800;
+    font-size: .9rem;
+    transition: background .3s, color .3s, transform .35s var(--spring);
+}
+
+.acc-item.open .acc-num {
+    background: var(--grad-primary);
+    color: #fff;
+    transform: scale(1.08);
+}
+
+.acc-chev {
+    flex: none;
+    width: 10px;
+    height: 10px;
+    margin-right: 6px;
+    border-right: 2px solid var(--blue-600);
+    border-bottom: 2px solid var(--blue-600);
+    transform: rotate(45deg);
+    transition: transform .35s var(--ease);
+}
+
+.acc-item.open .acc-chev {
+    transform: rotate(-135deg);
+}
+
+.acc-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    visibility: hidden;
+    transition: grid-template-rows .4s var(--ease), visibility 0s .4s;
+}
+
+.acc-item.open .acc-panel {
+    grid-template-rows: 1fr;
+    visibility: visible;
+    transition-delay: 0s;
+}
+
+.acc-inner {
+    overflow: hidden;
+    min-height: 0;
+}
+
+.acc-inner p {
+    margin: 0;
+    padding: 0 20px 20px;
+    color: var(--text);
+    line-height: 1.7;
+}
+
+.acc--steps .acc-inner p {
+    padding-left: 76px;
+}
+
+/* ---- Pricing ---- */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1060px;
+    margin: 0 auto;
+    padding-top: 14px;
+}
+
+.price-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 32px 28px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .3s;
+}
+
+.price-card.popular {
+    border: 2px solid var(--blue-500);
+    background: linear-gradient(180deg, #fff, var(--blue-50));
+    box-shadow: var(--shadow-md);
+    transform: translateY(-10px);
+}
+
+.price-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--blue-300);
+}
+
+.price-card.popular:hover {
+    transform: translateY(-16px);
+    box-shadow: var(--shadow-lg);
+}
+
+.price-card:active,
+.price-card.popular:active {
+    transform: translateY(-3px) scale(.99);
+}
+
+.price-card.picked {
+    transform: translateY(-14px);
+    border-color: var(--blue-500);
+    box-shadow: var(--shadow-lg);
+}
+
+.price-card.popular.picked {
+    transform: translateY(-18px);
+}
+
+.price-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    translate: -50% 0;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: var(--grad-primary);
+    color: #fff;
+    font-size: .74rem;
+    font-weight: 800;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    box-shadow: var(--shadow-btn);
+}
+
+.price-name {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--ink);
+}
+
+.price-text {
+    margin: 0;
+    color: var(--muted);
+    font-size: .95rem;
+}
+
+.price-amount {
+    display: grid;
+    gap: 2px;
+    padding: 8px 0 4px;
+}
+
+.price-amount small {
+    color: var(--muted);
+    font-size: .8rem;
+}
+
+.price-amount strong {
+    font-size: 2rem;
+    line-height: 1.1;
+    color: var(--ink);
+}
+
+.price-list {
+    align-content: start;
+    list-style: none;
+    margin: 0 0 8px;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+    flex: 1;
+}
+
+.price-list li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    color: var(--text);
+    font-size: .95rem;
+}
+
+.price-list svg {
+    flex: none;
+    margin-top: 3px;
+    color: var(--green);
+}
+
+.price-card .btn {
+    width: 100%;
+    justify-content: center;
+}
+
+/* ---- Testimonials + stats ---- */
+.quotes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.quote-card {
+    margin: 0;
+    padding: 28px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    display: grid;
+    gap: 18px;
+    transition: transform .3s var(--ease), box-shadow .3s;
+}
+
+.quote-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.quote-card blockquote {
+    margin: 0;
+    color: var(--ink);
+    font-size: 1.05rem;
+    line-height: 1.65;
+}
+
+.quote-card figcaption {
+    display: grid;
+    gap: 2px;
+}
+
+.quote-card figcaption span {
+    color: var(--muted);
+    font-size: .9rem;
+}
+
+.stats-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px 56px;
+    padding: 28px 0;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-item strong {
+    display: block;
+    font-size: 2rem;
+    color: var(--ink);
+}
+
+.stat-item span {
+    color: var(--muted);
+    font-size: .9rem;
+}
+
+/* ---- Tech strip ---- */
+.marquee {
+    overflow: hidden;
+    padding: 20px 0;
+    border-block: 1px solid var(--line);
+    background: rgba(255, 255, 255, .6);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.marquee-label {
+    text-align: center;
+    margin-bottom: 14px;
+    font-size: .75rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 40s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+.marquee-group {
+    display: flex;
+    gap: 16px;
+    padding-right: 16px;
+}
+
+.tech-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-weight: 700;
+    color: var(--ink);
+    white-space: nowrap;
+    box-shadow: var(--shadow-sm);
+}
+
+.tech-mark {
+    width: 22px;
+    height: 22px;
+    display: grid;
+    place-items: center;
+    border-radius: 6px;
+    color: #fff;
+    font-size: .68rem;
+    font-weight: 800;
+}
+
+.tech-mark--svg {
+    background: none;
+    border-radius: 0;
+}
+
+@keyframes marquee {
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* ---- Floating WhatsApp (desktop only; phones use the dock) ---- */
+.wa-float {
+    position: fixed;
+    right: 28px;
+    bottom: 28px;
+    z-index: 80;
+    display: flex;
+    align-items: center;
+    height: 58px;
+    min-width: 58px;
+    padding: 0 17px;
+    border-radius: 999px;
+    background: var(--whatsapp);
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(34, 197, 94, .45);
+    transition: transform .3s var(--spring), gap .3s;
+    animation: waPulse 2.8s ease-out infinite;
+}
+
+.wa-float span {
+    max-width: 0;
+    opacity: 0;
+    white-space: nowrap;
+    transition: max-width .4s var(--ease), opacity .3s;
+}
+
+.wa-float:hover,
+.wa-float:focus-visible {
+    transform: translateY(-4px);
+    gap: 10px;
+}
+
+.wa-float:hover span,
+.wa-float:focus-visible span {
+    max-width: 220px;
+    opacity: 1;
+}
+
+@keyframes waPulse {
+    0% {
+        box-shadow: 0 12px 30px rgba(34, 197, 94, .45), 0 0 0 0 rgba(34, 197, 94, .45);
+    }
+
+    70%,
+    100% {
+        box-shadow: 0 12px 30px rgba(34, 197, 94, .45), 0 0 0 18px rgba(34, 197, 94, 0);
+    }
+}
+
+/* ---- Form success tick ---- */
+.contact-form-card {
+    position: relative;
+}
+
+.form-success {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 24px;
+    text-align: center;
+    background: rgba(255, 255, 255, .95);
+    border-radius: inherit;
+    cursor: pointer;
+    animation: xFade .3s ease;
+}
+
+.form-success strong {
+    font-size: 1.2rem;
+    color: var(--ink);
+}
+
+.form-success span {
+    color: var(--muted);
+    max-width: 300px;
+}
+
+.tick {
+    width: 84px;
+    height: 84px;
+}
+
+.tick-circle {
+    fill: none;
+    stroke: var(--whatsapp);
+    stroke-width: 3;
+    stroke-dasharray: 151;
+    stroke-dashoffset: 151;
+    animation: xDraw .6s var(--ease) forwards;
+}
+
+.tick-check {
+    fill: none;
+    stroke: var(--whatsapp);
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 40;
+    stroke-dashoffset: 40;
+    animation: xDraw .4s .45s var(--ease) forwards;
+}
+
+@keyframes xDraw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes xFade {
+    from {
+        opacity: 0;
+    }
+}
+
+/* ---- Case study in the project modal ---- */
+.modal-hero {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1280 / 714;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    margin-bottom: 18px;
+    background: var(--blue-50);
+}
+
+.case-grid {
+    display: grid;
+    gap: 12px;
+    margin: 18px 0;
+}
+
+.case-step {
+    padding: 14px 16px;
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--blue-500);
+    border-radius: 12px;
+    background: var(--blue-50);
+}
+
+.case-step--result {
+    border-left-color: var(--green);
+    background: #f0fdf4;
+}
+
+.case-step p {
+    margin: 0;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.case-label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--blue-600);
+}
+
+.case-step--result .case-label {
+    color: var(--green);
+}
+
+.case-shots {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 8px;
+}
+
+.case-shots img {
+    height: 200px;
+    width: auto;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    scroll-snap-align: start;
+}
+
+@media (max-width: 900px) {
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 460px;
+    }
+
+    .price-card.popular {
+        order: -1;
+        transform: none;
+    }
+
+    .price-card.popular:hover {
+        transform: translateY(-8px);
+    }
+}
+
+@media (max-width: 860px) {
+    .wa-float {
+        display: none;
+    }
+}
+
+@media (max-width: 560px) {
+    .acc--steps .acc-inner p {
+        padding-left: 20px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee {
+        overflow-x: auto;
+    }
+
+    .marquee-track,
+    .wa-float,
+    .tick-circle,
+    .tick-check,
+    .form-success {
+        animation: none;
+    }
+
+    .tick-circle,
+    .tick-check {
+        stroke-dashoffset: 0;
+    }
+
+    .acc-panel,
+    .acc-chev,
+    .price-card {
+        transition: none;
+    }
+}

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { SERVICE_OPTIONS as SERVICE_KEYS } from '../data/siteContent.js';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { SITE } from '../config.js';
+import { COPY } from '../data/extras.js';
 import Icon from './Icon.jsx';
 
 const EMPTY = { name: '', phone: '', service: '', message: '' };
@@ -18,7 +19,15 @@ const whatsappFor = (f) => `https://wa.me/${SITE.whatsapp}?text=${encodeURICompo
 
 // No server involved: both buttons hand the message to an app on the visitor's device.
 export default function Contact({ prefill, onToast }) {
-  const { t, content } = useLanguage();
+  const { t, content, lang } = useLanguage();
+  const [done, setDone] = useState(false);
+  const doneTimer = useRef();
+  const flashDone = () => {
+    clearTimeout(doneTimer.current);
+    setDone(true);
+    doneTimer.current = setTimeout(() => setDone(false), 3200);
+  };
+  useEffect(() => () => clearTimeout(doneTimer.current), []);
   const serviceLabels = content.SERVICE_OPTIONS;
   const formRef = useRef(null);
   const [form, setForm] = useState(EMPTY);
@@ -35,12 +44,14 @@ export default function Contact({ prefill, onToast }) {
     e.preventDefault();
     window.open(whatsappFor(form), '_blank', 'noopener,noreferrer');
     onToast(t('contact.toastWhatsapp'));
+    flashDone();
   };
 
   const sendEmail = () => {
     if (formRef.current && !formRef.current.reportValidity()) return;
     window.location.href = mailtoFor(form);
     onToast(t('contact.toastMail'));
+    flashDone();
   };
 
   const copyEmail = async () => {
@@ -114,6 +125,16 @@ export default function Contact({ prefill, onToast }) {
         </div>
 
         <form className="contact-form-card" ref={formRef} onSubmit={sendWhatsApp}>
+          {done && (
+            <div className="form-success" role="status" onClick={() => setDone(false)}>
+              <svg className="tick" viewBox="0 0 52 52" aria-hidden="true">
+                <circle className="tick-circle" cx="26" cy="26" r="24" />
+                <path className="tick-check" d="M14 27l8 8 16-17" />
+              </svg>
+              <strong>{COPY[lang].success.title}</strong>
+              <span>{COPY[lang].success.text}</span>
+            </div>
+          )}
           <div className="form-group-row">
             <div className="form-group">
               <label htmlFor="contactName">{t('contact.name')}</label>

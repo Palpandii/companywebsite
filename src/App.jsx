@@ -12,6 +12,13 @@ import Footer from './components/Footer.jsx';
 import { useClickEffects, useScrollReveal, useToast } from './lib/hooks.js';
 import ScrollProgress from './components/ScrollProgress.jsx';
 import MobileDock from './components/MobileDock.jsx';
+import Process from './components/Process.jsx';
+import Pricing from './components/Pricing.jsx';
+import Faq from './components/Faq.jsx';
+import Testimonials from './components/Testimonials.jsx';
+import StatsStrip from './components/StatsStrip.jsx';
+import TechMarquee from './components/TechMarquee.jsx';
+import WhatsAppFloat from './components/WhatsAppFloat.jsx';
 import { useLanguage } from './context/LanguageContext.jsx';
 
 export default function App() {
@@ -42,17 +49,24 @@ export default function App() {
 
       <main>
         <Hero />
+        <StatsStrip />
+        <TechMarquee />
         <Services />
+        <Process />
         <About />
         <Stack />
         <Projects />
+        <Testimonials />
         <Estimator onApply={applyScope} />
+        <Pricing onApply={applyScope} />
         <Advantage />
+        <Faq />
         <Contact prefill={prefill} onToast={showToast} />
       </main>
 
       <Footer />
       <MobileDock />
+      <WhatsAppFloat />
 
       <div className={`toast-notice${toast.visible ? ' show' : ''}`} role="status" aria-live="polite">
         {toast.text}
