@@ -1,0 +1,160 @@
+[
+  {
+    "slug": "anish-crackers",
+    "title": "Anish Crackers Storefront and Admin Panel",
+    "filterGroup": "Client Work",
+    "badge": "Client Project",
+    "category": "E-Commerce and Business Management (Client Project)",
+    "tagline": "Bilingual fireworks storefront with WhatsApp ordering and a full admin panel for a Sivakasi wholesale and retail business.",
+    "cardText": "Tamil and English storefront with 219 products across 17 categories, WhatsApp-based ordering, and an admin panel for orders, payments, estimates and reports, backed by Spring Boot and MySQL.",
+    "summary": "Built the website and back office for Anish Crackers, a wholesale and retail fireworks business in Sivakasi. Customers browse the live catalog in Tamil or English and place orders over WhatsApp, while the owner manages products, banners, orders, payments, estimates, purchases, expenses and taxes from a protected admin panel.",
+    "role": "Full stack design and engineering for the client by Palpandi M",
+    "imageUrl": "/assets/images/anish_crackers.webp",
+    "imageAlt": "Anish Crackers website home page showing the brand logo banner and the headline Born from the Fireworks Capital",
+    "liveUrl": "https://www.anishcrackerssivakasi.in",
+    "repoUrl": "",
+    "sortOrder": 1,
+    "tech": [
+      "React.js",
+      "React Router",
+      "Spring Boot",
+      "Java 21",
+      "MySQL",
+      "JWT",
+      "Cloudinary",
+      "Railway"
+    ],
+    "highlights": [
+      "Built a bilingual (Tamil and English) React storefront with a cart drawer, category and product pages, and WhatsApp-based order placement",
+      "Developed a Spring Boot REST API with MySQL that serves the entire catalog at runtime, so every product change in the admin panel shows on the site immediately",
+      "Created an admin panel covering dashboard, products, categories, banners, orders, customers, payments, estimates, purchases, expenses, taxes, reports and user accounts",
+      "Secured the admin area with JWT authentication and added Cloudinary image uploads and a PDF generation service built on OpenPDF",
+      "Wrote a startup catalog seeder that loads 219 products and 17 categories into an empty database, then deployed the backend with MySQL on Railway"
+    ]
+  },
+  {
+    "slug": "gayathiri-pyrotech",
+    "title": "Gayathiri Pyrotech Storefront and Admin Panel",
+    "filterGroup": "Client Work",
+    "badge": "Client Project",
+    "category": "E-Commerce and Business Management (Client Project)",
+    "tagline": "Bilingual fireworks storefront with WhatsApp ordering and an admin panel for a Sivakasi wholesale and retail business.",
+    "cardText": "Tamil and English storefront with 153 products across 17 categories, WhatsApp-based ordering, and an admin panel for orders, payments, estimates and reports, backed by Spring Boot and MySQL.",
+    "summary": "Built the website and back office for Gayathiri Pyrotech, a wholesale and retail fireworks business in Sivakasi. Customers browse the catalog in Tamil or English and order over WhatsApp, while the owner manages products, banners, orders, payments, estimates, purchases, expenses and taxes from a protected admin panel.",
+    "role": "Full stack design and engineering for the client by Palpandi M",
+    "imageUrl": "/assets/images/gayathiri_pyrotech.webp",
+    "imageAlt": "Gayathiri Pyrotech admin dashboard with sales, order and pending order totals and a recent orders table (sample data)",
+    "liveUrl": "",
+    "repoUrl": "",
+    "sortOrder": 2,
+    "tech": [
+      "React.js",
+      "React Router",
+      "Spring Boot",
+      "Java 21",
+      "MySQL",
+      "JWT",
+      "Cloudinary"
+    ],
+    "highlights": [
+      "Built a bilingual (Tamil and English) React storefront with a cart drawer, category and product pages, product video support and WhatsApp-based order placement",
+      "Set up a 153-product catalog across 17 categories generated from the client's 2026 price list",
+      "Developed a Spring Boot REST API with MySQL that serves the catalog, banners, orders and estimates to the storefront and admin panel",
+      "Created an admin panel covering dashboard, products, categories, banners, orders, customers, payments, estimates, purchases, expenses, taxes, reports and user accounts",
+      "Secured the admin area with JWT authentication and added Cloudinary image uploads and PDF estimate generation using OpenPDF"
+    ]
+  },
+  {
+    "slug": "varathan-road-ways",
+    "title": "Varathan Road Ways Transport Management",
+    "filterGroup": "Client Work",
+    "badge": "Client Project",
+    "category": "Logistics and Transport Management (Client Project)",
+    "tagline": "Parcel booking, LR tracking, invoicing and SMS alerts for a road transport and freight business.",
+    "cardText": "Booking and tracking system with LR numbers, five freight payment types, a public tracking page, invoices with CSV export, reports and SMS notifications, built with React and Spring Boot.",
+    "summary": "Built a transport management system for Varathan Road Ways. Staff book parcels with a generated LR number, move each one through a controlled status flow, issue invoices and review reports, while customers can look up a parcel on a public tracking page without logging in.",
+    "role": "Full stack design and engineering for the client by Palpandi M",
+    "imageUrl": "/assets/images/varathan_road_ways.webp",
+    "imageAlt": "Varathan Road Ways transport dashboard with parcel counts, a weekly booking chart and quick actions (sample data)",
+    "liveUrl": "",
+    "repoUrl": "",
+    "sortOrder": 3,
+    "tech": [
+      "React.js",
+      "Vite",
+      "Recharts",
+      "Spring Boot",
+      "Spring Security",
+      "JWT",
+      "MySQL",
+      "Twilio"
+    ],
+    "highlights": [
+      "Built a React dashboard with live data for bookings, parcels, customers, tracking, invoices, reports and settings, in both light and dark themes",
+      "Designed booking flows for Paid, From Pay, To Pay, Credit and COD freight types, with automatic LR and invoice number generation",
+      "Enforced a strict status flow of Booked, In Transit and Delivered (with Cancelled allowed before delivery), and exposed a masked, rate-limited public tracking endpoint",
+      "Secured the Spring Boot API with JWT, per-IP rate limiting on login and public routes, and a production profile that refuses to start without proper secrets",
+      "Added SMS notifications to sender and receiver on booking and delivery through Twilio or Fast2SMS, sent in the background so a failed SMS never blocks a booking",
+      "Added invoice CSV export and unit tests for the status flow and rate limiter"
+    ]
+  },
+  {
+    "slug": "video-interview-ai",
+    "title": "Video Interview AI Platform",
+    "filterGroup": "Full Stack & AI",
+    "badge": "Full Stack & AI",
+    "category": "Full Stack Web Application",
+    "tagline": "AI-powered mock video interviews with real-time NLP evaluation and WebRTC streaming.",
+    "cardText": "AI-powered mock interview platform conducting real-time video interviews and evaluating responses with NLP-based AI APIs, WebRTC audio/video streaming, and live speech-to-text feedback.",
+    "summary": "Built an AI-powered mock interview platform conducting real-time video interviews and evaluating responses using NLP-based AI APIs. Features WebRTC audio/video streaming with speech-to-text transcription to capture and analyze user answers in real time.",
+    "role": "Full stack architecture and engineering by Palpandi M",
+    "imageUrl": "/assets/images/video_interview_ai.webp",
+    "imageAlt": "Video interview platform showing a candidate on camera with live AI feedback",
+    "liveUrl": "",
+    "repoUrl": "",
+    "sortOrder": 4,
+    "tech": [
+      "React.js",
+      "Core Java",
+      "Spring Boot",
+      "REST API",
+      "WebRTC",
+      "AI/ML API"
+    ],
+    "highlights": [
+      "Built an AI-powered mock interview platform conducting real-time video interviews and evaluating responses using NLP-based AI APIs",
+      "Integrated WebRTC for live video/audio streaming with speech-to-text transcription to capture and analyze user answers in real time",
+      "Developed React.js frontend with dynamic question flow, timer controls, and instant AI-generated feedback after each answer",
+      "Engineered Java Spring Boot RESTful API endpoints for session persistence and scoring aggregates"
+    ]
+  },
+  {
+    "slug": "ticket-booking-system",
+    "title": "Ticket Booking System",
+    "filterGroup": "Core Java & MySQL",
+    "badge": "Core Java & MySQL",
+    "category": "Core Java and Database Architecture",
+    "tagline": "Modular ticket booking application with clean OOP design and JDBC persistence in MySQL.",
+    "cardText": "Modular ticket booking application using Core Java and OOP principles (encapsulation, inheritance, polymorphism), with JDBC and MySQL for seat availability and user records.",
+    "summary": "Developed a ticket booking application applying Core Java and OOP principles: encapsulation, inheritance, polymorphism. Implemented JDBC for database connectivity to manage seat availability, booking records, and user data in MySQL.",
+    "role": "Core Java and database engineering by Palpandi M",
+    "imageUrl": "/assets/images/saas_analytics.webp",
+    "imageAlt": "Ticket booking system architecture and booking dashboard",
+    "liveUrl": "",
+    "repoUrl": "",
+    "sortOrder": 5,
+    "tech": [
+      "Core Java",
+      "Advanced Java",
+      "OOP",
+      "JDBC",
+      "MySQL"
+    ],
+    "highlights": [
+      "Developed a ticket booking application using Core Java and OOP principles: encapsulation, inheritance, polymorphism",
+      "Implemented JDBC for database connectivity to manage seat availability, booking records, and user data in MySQL",
+      "Designed modular class structures for Ticket, Passenger, Booking, and Payment using clean OOP design patterns",
+      "Applied transactional integrity and prepared statements to prevent SQL injection"
+    ]
+  }
+]
