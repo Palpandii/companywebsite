@@ -34,6 +34,7 @@ export default function Header() {
           </div>
           <div className="brand-text-block">
             <span className="brand-title">Leno<span>Tech</span></span>
+            <span className="brand-tag">Build · Innovate · Grow</span>
           </div>
         </a>
 

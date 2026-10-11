@@ -9,7 +9,7 @@ import Estimator from './components/Estimator.jsx';
 import Advantage from './components/Advantage.jsx';
 import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
-import { useScrollReveal, useToast } from './lib/hooks.js';
+import { useClickEffects, useScrollReveal, useToast } from './lib/hooks.js';
 import ScrollProgress from './components/ScrollProgress.jsx';
 import MobileDock from './components/MobileDock.jsx';
 import { useLanguage } from './context/LanguageContext.jsx';
@@ -17,6 +17,7 @@ import { useLanguage } from './context/LanguageContext.jsx';
 export default function App() {
   const { t } = useLanguage();
   useScrollReveal();
+  useClickEffects();
   const [toast, showToast] = useToast();
   const [prefill, setPrefill] = useState(null);
 

@@ -45,7 +45,7 @@ export default function Projects() {
 
         <div className="work-grid">
           {visible.map((p) => (
-            <article className="work-card" key={p.slug}>
+            <article className="work-card" key={`${filter}-${p.slug}`}>
               <div className="work-media-wrap">
                 <img src={p.imageUrl} alt={p.imageAlt || p.title} width="1280" height="714" loading="lazy" />
                 <span className="work-category-badge">{p.badge || p.filterGroup}</span>

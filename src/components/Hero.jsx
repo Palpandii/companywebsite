@@ -5,7 +5,7 @@ import Icon from './Icon.jsx';
 export default function Hero() {
   const { t } = useLanguage();
 
-  // Soft violet spotlight that follows a mouse pointer (ignored for touch).
+  // Soft blue spotlight that follows a mouse pointer (ignored for touch).
   const trackPointer = (e) => {
     if (e.pointerType !== 'mouse') return;
     const box = e.currentTarget.getBoundingClientRect();
@@ -58,10 +58,11 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="hero-visual-frame">
+        {/* Decorative laptop + phone preview, drawn in HTML/CSS so it stays sharp and bright. */}
+        <div className="hero-visual-frame" aria-hidden="true">
           <div className="visual-mockup-card">
             <div className="mockup-window-header">
-              <div className="mockup-dots" aria-hidden="true">
+              <div className="mockup-dots">
                 <div className="mockup-dot red" />
                 <div className="mockup-dot yellow" />
                 <div className="mockup-dot green" />
@@ -74,28 +75,42 @@ export default function Hero() {
             </div>
 
             <div className="mockup-media-container">
-              <img
-                src="/assets/images/hero_tech_mesh.webp"
-                alt={t('hero.imgAlt')}
-                width="1280"
-                height="714"
-                fetchpriority="high"
-              />
+              <div className="code-rail"><i /><i /><i /><i /></div>
+              <div className="code-body">
+                <span className="code-line" style={{ '--i': 0 }}><span className="c">// LenoTech</span></span>
+                <span className="code-line" style={{ '--i': 1 }}><span className="k">const</span> <span className="f">site</span> = build({'{'}</span>
+                <span className="code-line" style={{ '--i': 2 }}>{'  '}frontend: <span className="s">'React'</span>,</span>
+                <span className="code-line" style={{ '--i': 3 }}>{'  '}backend: <span className="s">'Spring Boot'</span>,</span>
+                <span className="code-line" style={{ '--i': 4 }}>{'  '}database: <span className="s">'MySQL'</span>,</span>
+                <span className="code-line" style={{ '--i': 5 }}>{'  '}responsive: <span className="k">true</span>,</span>
+                <span className="code-line" style={{ '--i': 6 }}>{'}'});</span>
+                <span className="code-line" style={{ '--i': 7 }}>site.<span className="f">launch</span>();<span className="code-caret" /></span>
+              </div>
             </div>
+          </div>
 
-            <div className="floating-metric metric-left">
-              <div className="metric-icon-box"><Icon name="database" size={20} /></div>
-              <div>
-                <div className="metric-label">{t('hero.metricBackend')}</div>
-                <div className="metric-val">Spring Boot + MySQL</div>
-              </div>
+          <div className="phone-mock">
+            <div className="phone-mock-screen">
+              <img className="phone-mock-logo" src="/assets/logo.svg" alt="" width="34" height="34" />
+              <span className="phone-mock-line w1" />
+              <span className="phone-mock-line w2" />
+              <span className="phone-mock-line w3" />
+              <span className="phone-mock-btn" />
             </div>
-            <div className="floating-metric metric-right">
-              <div className="metric-icon-box"><Icon name="code" size={20} /></div>
-              <div>
-                <div className="metric-label">{t('hero.metricFrontend')}</div>
-                <div className="metric-val">React</div>
-              </div>
+          </div>
+
+          <div className="floating-metric metric-right">
+            <div className="metric-icon-box"><Icon name="code" size={20} /></div>
+            <div>
+              <div className="metric-label">{t('hero.metricFrontend')}</div>
+              <div className="metric-val">React</div>
+            </div>
+          </div>
+          <div className="floating-metric metric-left">
+            <div className="metric-icon-box"><Icon name="database" size={20} /></div>
+            <div>
+              <div className="metric-label">{t('hero.metricBackend')}</div>
+              <div className="metric-val">Spring Boot + MySQL</div>
             </div>
           </div>
         </div>

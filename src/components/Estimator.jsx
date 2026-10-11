@@ -108,11 +108,11 @@ export default function Estimator({ onApply }) {
               <div className="summary-metrics-row">
                 <div className="summary-metric-box">
                   <div className="label">{t('est.delivery')}</div>
-                  <div className="value" aria-live="polite">{weeksLabel}</div>
+                  <div className="value" key={weeksLabel} aria-live="polite">{weeksLabel}</div>
                 </div>
                 <div className="summary-metric-box">
                   <div className="label">{t('est.workDays')}</div>
-                  <div className="value">{result.totalDays}</div>
+                  <div className="value" key={result.totalDays}>{result.totalDays}</div>
                 </div>
               </div>
 

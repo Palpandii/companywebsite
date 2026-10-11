@@ -116,3 +116,69 @@ export function useMediaQuery(query) {
   }, [query]);
   return matches;
 }
+
+const RIPPLE_SELECTOR = [
+  '.btn', '.filter-btn', '.estimator-option-btn', '.feature-toggle', '.select-pill', '.work-view-btn',
+  '.work-live-btn', '.copy-email-btn', '.back-to-top-btn', '.dock-btn', '.connect-item', '.lang-switch button',
+  '.mobile-toggle', '.modal-close-btn', '.service-card', '.cap-card', '.adv-card', '.work-card',
+  '.pillar-item', '.nav-link', '.social-links a'
+].join(',');
+
+/**
+ * Click feedback for the whole page: a ripple from the exact tap point, a small "pop" on controls,
+ * and an underline sweep on the heading of a section that an in-page link scrolls to.
+ * Skipped for reduced-motion users.
+ */
+export function useClickEffects() {
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
+
+    const onPointerDown = (e) => {
+      if (e.button > 0 || !e.target.closest) return;
+      const host = e.target.closest(RIPPLE_SELECTOR);
+      if (!host || host.disabled || host.getAttribute('aria-disabled') === 'true') return;
+
+      const box = host.getBoundingClientRect();
+      const size = Math.max(box.width, box.height) * 2;
+      const ripple = document.createElement('span');
+      ripple.className = 'ripple';
+      ripple.setAttribute('aria-hidden', 'true');
+      ripple.style.width = `${size}px`;
+      ripple.style.height = `${size}px`;
+      ripple.style.left = `${e.clientX - box.left - size / 2}px`;
+      ripple.style.top = `${e.clientY - box.top - size / 2}px`;
+      host.appendChild(ripple);
+      const remove = () => ripple.remove();
+      ripple.addEventListener('animationend', remove, { once: true });
+      setTimeout(remove, 900);
+
+      host.classList.remove('is-popping');
+      void host.offsetWidth; // restart the animation on rapid taps
+      host.classList.add('is-popping');
+      host.addEventListener('animationend', (ev) => {
+        if (ev.target === host) host.classList.remove('is-popping');
+      }, { once: true });
+    };
+
+    const onClick = (e) => {
+      const link = e.target.closest && e.target.closest('a[href^="#"]');
+      const id = link && link.getAttribute('href').slice(1);
+      const target = id && document.getElementById(id);
+      const heading = target && target.querySelector('.section-title, .about-headline');
+      if (!heading) return;
+      setTimeout(() => {
+        heading.classList.remove('focus-pulse');
+        void heading.offsetWidth;
+        heading.classList.add('focus-pulse');
+        setTimeout(() => heading.classList.remove('focus-pulse'), 1500);
+      }, 450);
+    };
+
+    document.addEventListener('pointerdown', onPointerDown, { passive: true });
+    document.addEventListener('click', onClick);
+    return () => {
+      document.removeEventListener('pointerdown', onPointerDown);
+      document.removeEventListener('click', onClick);
+    };
+  }, []);
+}
