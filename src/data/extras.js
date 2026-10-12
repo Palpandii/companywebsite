@@ -2,7 +2,7 @@
 // Edit text here. English and Tamil share the same shape.
 
 // ---- PRICES: placeholders, replace with your real starting prices before going live ----
-export const PRICES = ['₹15,000', '₹40,000', null]; // null shows "Let's talk"
+export const PRICES = ['₹15,000', '₹30,000', null]; // null shows "Let's talk"
 export const PLAN_SERVICE = ['Premium Website', 'Web Application', 'Custom Digital Solution']; // English names used by the contact form
 
 // ---- TESTIMONIALS: add ONLY real quotes you have permission to use. Empty list hides the section. ----
