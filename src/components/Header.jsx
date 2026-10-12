@@ -30,7 +30,7 @@ export default function Header() {
       <div className="container nav-container">
         <a href="#hero" className="brand-link" aria-label={t('a11y.home')}>
           <div className="brand-icon-wrapper">
-            <img src="/assets/logo.svg" alt="" width="42" height="42" />
+            <img src="/assets/logo.webp" alt="" width="42" height="42" />
           </div>
           <div className="brand-text-block">
             <span className="brand-title">Leno<span>Tech</span></span>

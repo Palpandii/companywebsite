@@ -2,6 +2,13 @@ import { SITE } from '../config.js';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import Icon from './Icon.jsx';
 
+// Real project screenshots that fade into each other inside the laptop mockup.
+const SHOTS = [
+  '/assets/images/anish_crackers.webp',
+  '/assets/images/varathan_road_ways.webp',
+  '/assets/images/video_interview_ai.webp'
+];
+
 export default function Hero() {
   const { t } = useLanguage();
 
@@ -74,24 +81,17 @@ export default function Hero() {
               <div className="mockup-status-tag">{t('hero.status')}</div>
             </div>
 
-            <div className="mockup-media-container">
-              <div className="code-rail"><i /><i /><i /><i /></div>
-              <div className="code-body">
-                <span className="code-line" style={{ '--i': 0 }}><span className="c">// LenoTech</span></span>
-                <span className="code-line" style={{ '--i': 1 }}><span className="k">const</span> <span className="f">site</span> = build({'{'}</span>
-                <span className="code-line" style={{ '--i': 2 }}>{'  '}frontend: <span className="s">'React'</span>,</span>
-                <span className="code-line" style={{ '--i': 3 }}>{'  '}backend: <span className="s">'Spring Boot'</span>,</span>
-                <span className="code-line" style={{ '--i': 4 }}>{'  '}database: <span className="s">'MySQL'</span>,</span>
-                <span className="code-line" style={{ '--i': 5 }}>{'  '}responsive: <span className="k">true</span>,</span>
-                <span className="code-line" style={{ '--i': 6 }}>{'}'});</span>
-                <span className="code-line" style={{ '--i': 7 }}>site.<span className="f">launch</span>();<span className="code-caret" /></span>
-              </div>
+            <div className="mockup-media-container mockup-media--shots">
+              {SHOTS.map((src, i) => (
+                <img key={src} className="mockup-shot" src={src} alt="" width="1280" height="714"
+                  loading={i ? 'lazy' : 'eager'} style={{ '--i': i }} />
+              ))}
             </div>
           </div>
 
           <div className="phone-mock">
             <div className="phone-mock-screen">
-              <img className="phone-mock-logo" src="/assets/logo.svg" alt="" width="34" height="34" />
+              <img className="phone-mock-logo" src="/assets/logo.webp" alt="" width="34" height="34" />
               <span className="phone-mock-line w1" />
               <span className="phone-mock-line w2" />
               <span className="phone-mock-line w3" />
