@@ -11,6 +11,6 @@ export const SITE = {
   // Paste your real profile URLs. Links with an empty value are hidden automatically.
   // Real numbers only, e.g. [{ value: '5', label: 'Projects delivered' }]. Empty hides the strip.
   stats: [],
-  github: '',
-  linkedin: ''
+  github: 'https://github.com/Palpandii',
+  linkedin: 'https://www.linkedin.com/in/palpandi02'
 };
